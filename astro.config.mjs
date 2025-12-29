@@ -5,8 +5,11 @@ import tailwind from "@astrojs/tailwind";
 
 import cloudflare from "@astrojs/cloudflare";
 
+import playformFormat from "@playform/format";
+import Biome from "@playform/format";
+
 export default defineConfig({
-  site: "https://astro-nano-demo.vercel.app",
-  integrations: [mdx(), sitemap(), tailwind()],
-  adapter: cloudflare(),
+	site: "https://astro-nano-demo.vercel.app",
+	integrations: [mdx(), sitemap(), tailwind(), playformFormat(), Biome()],
+	adapter: cloudflare(),
 });
