@@ -4,7 +4,7 @@ import { SITE } from "@consts";
 import Link from "@components/Link.astro";
 import ArrowCard from "@components/ArrowCard.astro";
 
-const blog = (await getCollection("blog"))
+const notes = (await getCollection("notes"))
 	.filter((post) => !post.data.draft)
 	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
 	.slice(0, SITE.NUM_POSTS_ON_HOMEPAGE);
@@ -15,14 +15,14 @@ const blog = (await getCollection("blog"))
     <h5 class="font-semibold text-black dark:text-white">
       Latest posts
     </h5> 
-    <Link href="/blog">
+    <Link href="/notes">
       See all posts
     </Link>
   </div>
   <ul class="flex flex-col gap-4">
-    {blog.map(post => (
+    {notes.map(note => (
       <li>
-        <ArrowCard entry={post} />
+        <ArrowCard entry={note} />
       </li>
     ))}
   </ul>

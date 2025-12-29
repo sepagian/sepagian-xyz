@@ -17,7 +17,7 @@ export const HOME: Metadata = {
 		"What I’m thinking about now, what I’m building, and why this space exists.",
 };
 
-export const BLOG: Metadata = {
+export const NOTES: Metadata = {
 	TITLE: "Notes",
 	DESCRIPTION: "Writing across software, culture, and personal growth",
 };

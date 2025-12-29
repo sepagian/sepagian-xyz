@@ -9,7 +9,7 @@ import Post from "@components/Post.astro";
 import Projects from "@components/Projects.astro";
 import { SITE, HOME, SOCIALS } from "@consts";
 
-const allBlog = await getCollection("blog");
+const allNotes = await getCollection("notes");
 
 const allProjects = await getCollection("projects");
 
@@ -25,7 +25,7 @@ const allwork = await getCollection("work");
     </div>
     <div class="space-y-16">
       <Hero/>
-      {allBlog.length > 0 && <Post/>}
+      {allNotes.length > 0 && <Post/>}
       {allwork.length > 0 && <Work />} 
       {allProjects.length > 0 && <Projects/>}
 
