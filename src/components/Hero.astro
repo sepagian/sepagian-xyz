@@ -1,0 +1,26 @@
+---
+import { SITE, STACKS } from "@consts";
+import Link from "@components/Link.astro";
+---
+
+<section>
+  <article class="space-y-4">
+    <p class="animate">I’m a full-stack developer who builds rough ideas into software that solves real-world problems. I work across frontend and backend, building products that ship, scale, and improve through real use (though, sometimes fail). I care about clean architecture, readable code, and choosing tools deliberately rather than by trend.</p>
+    <p class="animate">Lately, I’ve been focused on modern web stacks and UI systems, exploring how different frameworks shape the way we think and build. I’m continuously learning, refining fundamentals, and stress-testing ideas through small projects and real-world use.</p>
+    <p class="animate">Outside of writing code, I read widely, fiction, philosophy, technology, and essays that sharpen how I see the world. This site is a living index of what I’m capable of, what I’m learning now, and how my thinking evolves over time, in code, words, and work still in progress.</p>
+    <h4 class="animate">Currently working with:</h4>
+  </article>
+  <ul class="flex flex-wrap gap-2 animate">
+    {STACKS.map(STACK => (
+    <li class="flex gap-x-2 text-nowrap text-sm">
+      <Link href={STACK.HREF} external aria-label={`${SITE.NAME} on ${STACK.NAME}`}>
+        {STACK.NAME}
+      </Link>
+      {"/"}
+    </li>
+    ))}
+  </ul>
+</section>
+
+<section class="space-y-4">
+</section>
