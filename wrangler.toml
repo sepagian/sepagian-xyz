@@ -1,0 +1,4 @@
+name = "sepagian-xyz"
+compatibility_date = "2025-12-29"
+"$schema" = "node_modules/wrangler/config-schema.json"
+
