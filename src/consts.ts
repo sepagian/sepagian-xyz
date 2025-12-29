@@ -1,45 +1,79 @@
-import type { Site, Metadata, Socials } from "@types";
+import type { Site, Metadata, Socials, Stacks } from "@types";
 
 export const SITE: Site = {
-  NAME: "sepagian",
-  EMAIL: "rizkydana14@gmail.com",
-  NUM_POSTS_ON_HOMEPAGE: 3,
-  NUM_WORKS_ON_HOMEPAGE: 2,
-  NUM_PROJECTS_ON_HOMEPAGE: 3,
+	NAME: "sepagian",
+	EMAIL: "rizkydana14@gmail.com",
+	CAPTION: "I build web systems, from idea to productions",
+	DEFAULT_TITLE: "sepagian",
+	DEFAULT_DESCRIPTION: "Personal website, writing, and selected work",
+	NUM_POSTS_ON_HOMEPAGE: 3,
+	NUM_WORKS_ON_HOMEPAGE: 2,
+	NUM_PROJECTS_ON_HOMEPAGE: 3,
 };
 
 export const HOME: Metadata = {
-  TITLE: "Home",
-  DESCRIPTION: "Astro Nano is a minimal and lightweight blog and portfolio.",
+	TITLE: "Home",
+	DESCRIPTION:
+		"What I’m thinking about now, what I’m building, and why this space exists.",
 };
 
 export const BLOG: Metadata = {
-  TITLE: "Blog",
-  DESCRIPTION: "A collection of articles on topics I am passionate about.",
+	TITLE: "Notes",
+	DESCRIPTION: "Writing across software, culture, and personal growth",
 };
 
 export const WORK: Metadata = {
-  TITLE: "Work",
-  DESCRIPTION: "Where I have worked and what I have done.",
+	TITLE: "Work",
+	DESCRIPTION: "Professional experience, skills, and roles.",
 };
 
 export const PROJECTS: Metadata = {
-  TITLE: "Projects",
-  DESCRIPTION:
-    "A collection of my projects, with links to repositories and demos.",
+	TITLE: "Projects",
+	DESCRIPTION: "Things I’m building, breaking, and shipping.",
 };
 
 export const SOCIALS: Socials = [
-  {
-    NAME: "twitter-x",
-    HREF: "https://twitter.com/markhorn_dev",
-  },
-  {
-    NAME: "github",
-    HREF: "https://github.com/markhorn-dev",
-  },
-  {
-    NAME: "linkedin",
-    HREF: "https://www.linkedin.com/in/markhorn-dev",
-  },
+	{
+		NAME: "twitter-x",
+		HREF: "https://twitter.com/sepagian",
+	},
+	{
+		NAME: "github",
+		HREF: "https://github.com/sepagian",
+	},
+	{
+		NAME: "linkedin",
+		HREF: "https://www.linkedin.com/in/sepagian",
+	},
+];
+
+export const STACKS: Stacks = [
+	{
+		NAME: "Astro",
+		HREF: "https://astro.build/",
+	},
+	{
+		NAME: "Bun",
+		HREF: "https://bun.sh/",
+	},
+	{
+		NAME: "Cloudflare",
+		HREF: "https://workers.cloudflare.com/",
+	},
+	{
+		NAME: "PostgreSQL",
+		HREF: "https://www.postgresql.org/",
+	},
+	{
+		NAME: "SQLite",
+		HREF: "https://www.sqlite.org/",
+	},
+	{
+		NAME: "Svelte",
+		HREF: "https://www.svelte.dev",
+	},
+	{
+		NAME: "TypeScript",
+		HREF: "https://www.typescriptlang.org/",
+	},
 ];
