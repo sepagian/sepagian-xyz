@@ -5,7 +5,8 @@ content:
   - name: notes
     label: Notes
     type: collection
-    path: src/content/notes 
+    path: src/content/notes
+    filename: "{primary}.md"
     view:
       fields: [ title, description, date ]
     fields:
