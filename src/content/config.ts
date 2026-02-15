@@ -6,6 +6,7 @@ const notes = defineCollection({
     title: z.string(),
     description: z.string(),
     date: z.date(),
+    coverImg: z.string().optional(),
     draft: z.boolean().optional(),
   }),
 });
@@ -27,8 +28,9 @@ const projects = defineCollection({
     description: z.string(),
     date: z.date(),
     draft: z.boolean().optional(),
-    demoURL: z.string().optional(),
-    repoURL: z.string().optional(),
+    coverImg: z.string().optional(),
+    demoUrl: z.string().optional(),
+    repoUrl: z.string(),
   }),
 });
 
