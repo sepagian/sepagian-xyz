@@ -2,7 +2,7 @@
 title: "Devlog #001: Migrating from TinaCMS to PagesCMS"
 description: Sometimes the simpler tool is the right tool.
 date: 2026-02-15
-draft: true
+draft: false
 ---
 # Backstory
 
