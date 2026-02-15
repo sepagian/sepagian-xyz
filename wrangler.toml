@@ -16,3 +16,5 @@ head_sampling_rate = 1
 invocation_logs = true
 persist = true
 
+[vars]
+NEXT_PUBLIC_TINA_CLIENT_ID = "ac1a1165-a182-48a8-8dd2-fc3a832ac08e"
