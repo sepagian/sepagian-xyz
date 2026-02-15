@@ -17,6 +17,7 @@ content:
       - { name: body, label: Body, type: rich-text }
   - name: projects
     label: Projects
+    type: collection
     path: src/content/projects
     view:
       fields: [ title, description, date ]
