@@ -20,6 +20,7 @@ content:
     label: Projects
     type: collection
     path: src/content/projects
+    filename: "{primary}.md"
     view:
       fields: [ title, description, date ]
     fields:
