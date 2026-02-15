@@ -1,0 +1,31 @@
+media:
+  input: src/media
+  output: /
+content:
+  - name: notes
+    label: Notes
+    type: collection
+    path: src/content/notes 
+    view:
+      fields: [ title, description, date ]
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: description, label: Description, type: string, required: true }
+      - { name: date, label: Published Date, type: date, required: true }
+      - { name: coverImg, label: Cover Image, type: image }
+      - { name: draft, label: Draft, type: boolean }
+      - { name: body, label: Body, type: rich-text }
+  - name: projects
+    label: Projects
+    path: src/content/projects
+    view:
+      fields: [ title, description, date ]
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: description, label: Description, type: string, required: true }
+      - { name: date, label: Published Date, type: date, required: true }
+      - { name: coverImg, label: Cover Image, type: image }
+      - { name: repoUrl, label: Repository Link, type: string, required: true }
+      - { name: demoUrl, label: Live Preview, type: string }
+      - { name: body, label: Body, type: rich-text }
+    
