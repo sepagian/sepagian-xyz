@@ -3,9 +3,9 @@
   "type": "module",
   "version": "1.0.0",
   "scripts": {
-    "dev": "tinacms dev -c \"astro dev\"",
+    "dev": "astro dev",
     "dev:network": "astro dev --host",
-    "build": "astro check && astro build && tinacms build",
+    "build": "astro check && astro build",
     "preview": "astro preview",
     "preview:network": "astro preview --host",
     "astro": "astro",
