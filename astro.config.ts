@@ -1,7 +1,6 @@
 import path from "node:path";
 import cloudflare from "@astrojs/cloudflare";
 import mdx from "@astrojs/mdx";
-import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import playformFormat from "@playform/format";
 import Biome from "@playform/format";
@@ -31,22 +30,10 @@ export default defineConfig({
       theme: "css-variables",
       wrap: true,
     },
-    remarkPlugins: [
-      remarkDirective,
-      remarkEmbeddedMedia,
-      remarkReadingTime,
-      remarkTOC,
-    ],
+    remarkPlugins: [remarkDirective, remarkEmbeddedMedia, remarkReadingTime, remarkTOC],
     rehypePlugins: [rehypeCleanup, rehypeImageProcessor, rehypeCopyCode],
   },
-  integrations: [
-    playformInline({}),
-    react(),
-    mdx(),
-    sitemap(),
-    playformFormat(),
-    Biome(),
-  ],
+  integrations: [playformInline({}), mdx(), sitemap(), playformFormat(), Biome()],
   vite: {
     resolve: {
       alias: {
