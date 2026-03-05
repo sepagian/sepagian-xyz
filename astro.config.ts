@@ -1,14 +1,13 @@
 import path from "node:path";
 import cloudflare from "@astrojs/cloudflare";
 import mdx from "@astrojs/mdx";
+import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import playformFormat from "@playform/format";
 import Biome from "@playform/format";
 import playformInline from "@playform/inline";
 import { defineConfig } from "astro/config";
-import rehypeKatex from "rehype-katex";
 import remarkDirective from "remark-directive";
-import remarkMath from "remark-math";
 import { themeConfig } from "./src/config";
 import rehypeCleanup from "./src/plugins/rehype-cleanup.mjs";
 import rehypeCopyCode from "./src/plugins/rehype-copy-code.mjs";
@@ -19,7 +18,7 @@ import remarkTOC from "./src/plugins/remark-toc.mjs";
 import { imageConfig } from "./src/utils/image-config";
 
 export default defineConfig({
-  adapter: cloudflare(), // Set adapter for deployment, or set `linkCard` to `false` in `src/config.ts`
+  adapter: cloudflare(),
   site: themeConfig.site.website,
   image: {
     service: {
@@ -33,23 +32,16 @@ export default defineConfig({
       wrap: true,
     },
     remarkPlugins: [
-      remarkMath,
       remarkDirective,
       remarkEmbeddedMedia,
       remarkReadingTime,
       remarkTOC,
     ],
-    rehypePlugins: [
-      rehypeKatex,
-      rehypeCleanup,
-      rehypeImageProcessor,
-      rehypeCopyCode,
-    ],
+    rehypePlugins: [rehypeCleanup, rehypeImageProcessor, rehypeCopyCode],
   },
   integrations: [
-    playformInline({
-      Exclude: [(file) => file.toLowerCase().includes("katex")],
-    }),
+    playformInline({}),
+    react(),
     mdx(),
     sitemap(),
     playformFormat(),

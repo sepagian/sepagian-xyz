@@ -6,8 +6,7 @@ export const themeConfig: ThemeConfig = {
     website: "https://sepagian.xyz/",
     title: "sepagian", // Site title
     author: "Rizky Dana", // Author name
-    description:
-      "Crafting interfaces. Building polished software and web experiences.", // Site description
+    description: "Crafting interfaces. Building polished software and web experiences.", // Site description
     language: "id-ID", // Default language
   },
 
