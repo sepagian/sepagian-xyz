@@ -13,7 +13,7 @@ const tech: Tech[] = [
   { name: "Bun", key: "bun", url: "https://bun.sh" },
   { name: "Cloudflare", key: "cloudflare", url: "https://workers.cloudflare.com"},
   { name: "Drizzle", key: "drizzle", url: "https://orm.drizzle.team"},
-  { name: "Github", key: "github"},
+  { name: "Github", key: "github", url: "https://github.com" },
   { name: "Hono", key: "hono", url: "https://hono.dev"},
   { name: "Svelte", key: "svelte", url: "https://svelte.dev"},
   { name: "Tanstack", key: "tanstack", url: "https://tanstack.com"},
@@ -28,9 +28,9 @@ const tech: Tech[] = [
   {tech.map((item) => {
     const Icon = icons[`/public/icons/stack/${item.key}.svg`].default;
     return (
-    <a href={item.url} rel="noopener" target="_blank">
+  <a aria-label={item.name} href={item.url} rel="noopener" target="_blank" >
       <div class="flex gap-2 items-center justify-center">
-        <Icon class="sm:size-4 size-6" />
+      <Icon class="sm:size-4 size-6" />
         <span class="text-sm ">{item.name}</span>
       </div>
     </a>
