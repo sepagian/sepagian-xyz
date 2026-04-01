@@ -2,11 +2,14 @@
 import FormattedDate from "@/components/widgets/FormattedDate.astro";
 import { themeConfig } from "@/config";
 import type { PostListProps } from "@/types";
+import Writing from "../../../public/writing.svg"
 
 const { posts } = Astro.props as PostListProps;
 ---
 
-<h2>Tulisan</h2>
+<h2 aria-label="Tulisan">
+<Writing/>
+</h2>
 
 <ul>
   {posts.map((post) => (

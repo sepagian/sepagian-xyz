@@ -1,14 +1,16 @@
 ---
-import { themeConfig } from "@/config";
 import Github from "../../../public/icons/stack/github.svg";
+import Sepagian from "../../../public/sepagian.svg"
 
 ---
 
 <header>
   <nav>
-    <a href="/">{themeConfig.site.title}</a>
+    <a href="/" aria-label="sepagian">
+      <Sepagian/>
+    </a>
     <a href="https://github.com/sepagian" target="_blank" rel="noopener" aria-label="Github Profile">
-      <Github class="size-4"/>
+      <Github width={16} height={16}/>
     </a>
   </nav>
 </header>

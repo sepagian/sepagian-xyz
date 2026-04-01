@@ -12,7 +12,7 @@
         return
       }
 
-      this.mediaQuery = window.matchMedia('(prefers-color-scheme: light)')
+      this.mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
       this.svgUrl = '/favicon.svg'
       this.currentColor = null
       this.svgContent = null
@@ -35,7 +35,7 @@
     }
 
     updateFavicon() {
-      const color = this.mediaQuery.matches ? '#ccc' : '#111'
+      const color = this.mediaQuery.matches ? '#fff' : '#111'
       if (this.currentColor === color) return
       this.currentColor = color
       this.updateFaviconColor(color)
