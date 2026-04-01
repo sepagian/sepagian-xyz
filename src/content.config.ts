@@ -17,7 +17,7 @@ const posts = defineCollection({
 const about = defineCollection({
   loader: glob({
     base: "./src/content/about",
-    pattern: "**/*.md",
+    pattern: "**/*.mdx",
   }),
   schema: z.object({}),
 });
