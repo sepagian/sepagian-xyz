@@ -1,9 +1,9 @@
 ---
-import { getEntry } from "astro:content";
-import { render } from "astro:content";
+import { getCollection, render } from "astro:content";
+import Tech from "./Tech.astro";
 
-const aboutEntry = await getEntry("about", "about");
-// Check if there is actual content (excluding comments)
+const aboutEntries = await getCollection("about");
+const aboutEntry = aboutEntries.find((entry) => entry.id === "about");
 const hasContent = aboutEntry?.body
   ? aboutEntry.body.replace(/<!--[\s\S]*?-->/g, "").trim().length > 0
   : false;
@@ -14,7 +14,7 @@ const { Content } =
 {
   hasContent && Content && (
     <div class="about prose">
-      <Content />
+      <Content components={{ Tech }} />
     </div>
   )
 }

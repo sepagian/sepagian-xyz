@@ -1,0 +1,41 @@
+---
+
+const icons = import.meta.glob("/public/icons/stack/*.svg", { eager: true });
+
+interface Tech {
+  key: string;
+  name: string;
+  url?: string;
+}
+
+const tech: Tech[] = [
+  { name: "Astro", key: "astro", url: "https://astro.build" },
+  { name: "Bun", key: "bun", url: "https://bun.sh" },
+  { name: "Cloudflare", key: "cloudflare", url: "https://workers.cloudflare.com"},
+  { name: "Drizzle", key: "drizzle", url: "https://orm.drizzle.team"},
+  { name: "Github", key: "github"},
+  { name: "Hono", key: "hono", url: "https://hono.dev"},
+  { name: "Svelte", key: "svelte", url: "https://svelte.dev"},
+  { name: "Tanstack", key: "tanstack", url: "https://tanstack.com"},
+  { name: "Typescript", key: "typescript", url: "https://typescriptlang.org"},
+  { name: "UnoCSS", key: "unocss", url: "https://unocss.dev"},
+  { name: "Vite", key: "vite", url: "https://vite.dev"},
+  { name: "Zod", key: "zod", url: "https://zod.dev"}
+];
+---
+
+<div class="grid sm:grid-cols-4 grid-cols-3 gap-y-4 justify-center">
+  {tech.map((item) => {
+    const Icon = icons[`/public/icons/stack/${item.key}.svg`].default;
+    return (
+    <a href={item.url} rel="noopener" target="_blank">
+      <div class="flex gap-2 items-center justify-center">
+        <Icon class="sm:size-4 size-6" />
+        <span class="text-sm ">{item.name}</span>
+      </div>
+    </a>
+    )
+  })}
+</div>
+
+
