@@ -1,5 +1,6 @@
-@import './fonts.css';
-@import './post.css';
+@import "./fonts.css";
+@import "./post.css";
+@import "tailwindcss";
 
 :root {
   /* Min Content Width */
@@ -7,8 +8,8 @@
 
   /* Typography */
   --sans: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
-  --serif: Besley, Baskerville, Georgia, 'Times New Roman', Times, serif;
-  --mono: 'SF Mono', SFMono-Regular, monospace;
+  --serif: Besley, Baskerville, Georgia, "Times New Roman", Times, serif;
+  --mono: "SF Mono", SFMono-Regular, monospace;
 
   --font-size-s: 0.8125rem;
   --font-size-m: 0.9375rem;
@@ -107,7 +108,7 @@ html {
 
 body {
   font-family: var(--sans);
-  font-feature-settings: 'ss03' 1;
+  font-feature-settings: "ss03" 1;
   font-size: var(--font-size-m);
   line-height: 1.75;
   color: var(--text-primary);
@@ -159,7 +160,7 @@ body[data-width] {
   max-width: var(--content-width);
 }
 
-body[data-centered='true'] {
+body[data-centered="true"] {
   margin: 0 auto;
 }
 
@@ -179,13 +180,13 @@ main {
   letter-spacing: var(--spacing-s);
   font-variant-numeric: tabular-nums;
   font-feature-settings:
-    'tnum' 1,
-    'zero' 0,
-    'cv01' 1,
-    'cv02' 1,
-    'calt' 1,
-    'ss03' 1,
-    'ordn' 1;
+    "tnum" 1,
+    "zero" 0,
+    "cv01" 1,
+    "cv02" 1,
+    "calt" 1,
+    "ss03" 1,
+    "ordn" 1;
 }
 
 .date .month {
