@@ -1,19 +1,15 @@
 ---
-import FormattedDate from '@/components/widgets/FormattedDate.astro'
-import type { PostListProps } from '@/types'
-import { themeConfig } from '@/config'
+import FormattedDate from "@/components/widgets/FormattedDate.astro";
+import { themeConfig } from "@/config";
+import type { PostListProps } from "@/types";
 
-const { posts } = Astro.props as PostListProps
+const { posts } = Astro.props as PostListProps;
 ---
 
-
-<h2>
-  Tulisan
-</h2>
+<h2>Tulisan</h2>
 
 <ul>
-  {
-    posts.map((post) => (
+  {posts.map((post) => (
       <li>
         <a href={`/${post.id}/`}>
           <div class={`post-item ${!themeConfig.date.dateOnRight ? 'date-left' : ''}`}>
@@ -34,8 +30,7 @@ const { posts } = Astro.props as PostListProps
           </div>
         </a>
       </li>
-    ))
-  }
+    ))}
 </ul>
 <div class="placeholder"></div>
 
@@ -44,109 +39,109 @@ h2 {
   margin-bottom: 1.25rem;
   font-size: var(--font-size-m);
 }
-  ul {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+a {
+  display: block;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: opacity 0.15s ease-out;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  ul:hover a {
+    opacity: 0.4;
   }
 
-  a {
-    color: var(--text-primary);
-    display: block;
-    text-decoration: none;
-    transition: opacity 0.15s ease-out;
+  ul:hover a:hover {
+    opacity: 1;
   }
 
-  @media (hover: hover) and (pointer: fine) {
-    ul:hover a {
-      opacity: 0.4;
-    }
-
-    ul:hover a:hover {
-      opacity: 1;
-    }
-
-    ul:hover a:hover .divider {
-      background-color: var(--text-tertiary);
-      opacity: 0.75;
-    }
-    ul:hover a:hover .dotted-divider {
-      color: var(--text-secondary);
-    }
-    ul:hover a:hover .date {
-      color: var(--text-secondary);
-      opacity: 1;
-    }
+  ul:hover a:hover .divider {
+    background-color: var(--text-tertiary);
+    opacity: 0.75;
   }
-
-  .post-item {
-    height: 2.75rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .post-item.date-left {
-    justify-content: flex-start;
-  }
-
-  .post-item.date-left .title {
-    flex: 1 1 auto;
-    min-width: 0;
-  }
-
-  .post-item.date-left .date {
-    margin-right: 0.75rem;
-  }
-
-  .title {
-    margin: 0;
-    flex-shrink: 1;
-    min-width: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .date {
-    margin: 0;
+  ul:hover a:hover .dotted-divider {
     color: var(--text-secondary);
-    opacity: 0.75;
-    letter-spacing: var(--spacing-s);
-    flex-shrink: 0;
-    white-space: nowrap;
   }
+  ul:hover a:hover .date {
+    color: var(--text-secondary);
+    opacity: 1;
+  }
+}
 
-  .divider {
-    flex: 1 1 auto;
-    min-width: 3rem;
-    margin: 0 0.25rem;
-    height: 0.5px;
-    background-color: var(--border);
-  }
+.post-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: space-between;
+  height: 2.75rem;
+}
 
-  .dotted-divider {
-    flex: 1 1 3rem;
-    min-width: 3rem;
-    max-width: 100%;
-    text-align: end;
-    letter-spacing: 5px;
-    height: 1.675rem;
-    overflow: hidden;
-    color: var(--text-tertiary);
-    opacity: 0.75;
-  }
+.post-item.date-left {
+  justify-content: flex-start;
+}
 
-  .dotted-divider::after {
-    content: '·····························································································································································';
-    pointer-events: none;
-  }
+.post-item.date-left .title {
+  flex: 1 1 auto;
+  min-width: 0;
+}
 
-  .placeholder {
-    height: 3rem;
-  }
+.post-item.date-left .date {
+  margin-right: 0.75rem;
+}
+
+.title {
+  flex-shrink: 1;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.date {
+  flex-shrink: 0;
+  margin: 0;
+  color: var(--text-primary);
+  letter-spacing: var(--spacing-s);
+  white-space: nowrap;
+  opacity: 0.75;
+}
+
+.divider {
+  flex: 1 1 auto;
+  min-width: 3rem;
+  height: 0.5px;
+  margin: 0 0.25rem;
+  background-color: var(--border);
+}
+
+.dotted-divider {
+  flex: 1 1 3rem;
+  min-width: 3rem;
+  max-width: 100%;
+  height: 1.675rem;
+  overflow: hidden;
+  color: var(--text-tertiary);
+  text-align: end;
+  letter-spacing: 5px;
+  opacity: 0.75;
+}
+
+.dotted-divider::after {
+  pointer-events: none;
+  content: "·····························································································································································";
+}
+
+.placeholder {
+  height: 3rem;
+}
 </style>
