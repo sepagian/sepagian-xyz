@@ -1,12 +1,16 @@
 ---
 import { themeConfig } from '@/config'
 import ThemeToggle from '@/components/ui/ThemeToggle.astro'
+import Github from "../../../public/icons/stack/github.svg"
+
 ---
 
 <header>
   <nav>
     <a href="/">{themeConfig.site.title}</a>
-    <ThemeToggle />
+    <a href="https://github.com/sepagian" target="_blank" rel="noopener">
+      <Github class="size-4"/>
+    </a>
   </nav>
 </header>
 <style>
