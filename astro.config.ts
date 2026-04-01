@@ -5,6 +5,7 @@ import sitemap from "@astrojs/sitemap";
 import playformFormat from "@playform/format";
 import Biome from "@playform/format";
 import playformInline from "@playform/inline";
+import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 import remarkDirective from "remark-directive";
 import { themeConfig } from "./src/config";
@@ -38,8 +39,11 @@ export default defineConfig({
     resolve: {
       alias: {
         "@": path.resolve("./src"),
+        "@public": path.resolve("./public/"),
       },
     },
+
+    plugins: [tailwindcss()],
   },
   devToolbar: {
     enabled: true,
