@@ -28,7 +28,7 @@ const imageUrl = ogImage ? new URL(ogImage, Astro.url) : new URL('/og/chiri-og.s
 <title>
   {title || themeConfig.site.title}
 </title>
-<meta name="title" content={title} />
+<meta name="title" content={title || themeConfig.site.title} />
 <meta name="description" content={description} />
 
 <!-- Open Graph / Facebook -->
