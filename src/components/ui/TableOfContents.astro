@@ -6,11 +6,11 @@ const { toc = [] }: TOCProps = Astro.props
 ---
 
 <div class="toc-container" id="toc">
-  <nav class="toc-nav">
+  <nav class="toc-nav" aria-label="Table of contents">
     <ul class="toc-list" id="toc-list">
       <!-- Back to top link -->
       <li class="toc-item toc-level-0">
-        <a href="#" class="toc-link toc-title" title="Back to top" data-text="Back to top"> Back to top </a>
+        <button type="button" class="toc-link toc-title" data-text="Back to top"> Back to top </button>
       </li>
 
       <!-- TOC items -->
