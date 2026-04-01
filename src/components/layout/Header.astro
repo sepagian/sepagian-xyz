@@ -1,7 +1,6 @@
 ---
-import { themeConfig } from '@/config'
-import ThemeToggle from '@/components/ui/ThemeToggle.astro'
-import Github from "../../../public/icons/stack/github.svg"
+import { themeConfig } from "@/config";
+import Github from "../../../public/icons/stack/github.svg";
 
 ---
 
@@ -9,24 +8,24 @@ import Github from "../../../public/icons/stack/github.svg"
   <nav>
     <a href="/">{themeConfig.site.title}</a>
     <a href="https://github.com/sepagian" target="_blank" rel="noopener">
-      <Github class="size-4"/>
+      <Github class="size-4" />
     </a>
   </nav>
 </header>
 <style>
   header {
-    margin: 0;
-  }
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  header a {
-    font-weight: var(--font-weight-bold);
-    color: var(--text-primary);
-    text-decoration: none;
-    min-width: 3rem;
-    display: inline-block;
-  }
+  margin: 0;
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header a {
+  display: inline-block;
+  min-width: 3rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  text-decoration: none;
+}
 </style>
