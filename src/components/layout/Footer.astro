@@ -1,13 +1,12 @@
 ---
 import { themeConfig } from "@/config";
+
 const today = new Date();
 ---
 
 <footer>
   <div class="footer-content">
-    <div class="copyright">
-      <span>To define is to limit</span>
-    </div>
+    <div class="copyright"><span>To define is to limit</span></div>
     <div class="powered-by">
       <span class="date">
         &copy;
@@ -19,39 +18,39 @@ const today = new Date();
 </footer>
 <style>
   footer {
-    font-size: var(--font-size-s);
-    font-weight: var(--font-weight-light);
-    line-height: 1.75;
-    color: var(--text-secondary);
-    opacity: 0.75;
-    margin-top: 4rem;
-  }
+  margin-top: 4rem;
+  font-size: var(--font-size-s);
+  font-weight: var(--font-weight-light);
+  line-height: 1.75;
+  color: var(--text-primary);
+  opacity: 0.75;
+}
 
-  .footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    width: 100%;
-  }
+.footer-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
 
-  .copyright,
-  .powered-by {
-    white-space: nowrap;
-  }
+.copyright,
+.powered-by {
+  white-space: nowrap;
+}
 
-  .copyright .date {
-    opacity: 1;
-  }
+.copyright .date {
+  opacity: 1;
+}
 
-  footer a {
-    color: var(--text-secondary);
-    text-decoration: none;
-    transition: color 0.2s ease-out;
-  }
+footer a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 0.2s ease-out;
+}
 
-  footer a:hover {
-    color: var(--text-primary);
-  }
+footer a:hover {
+  color: var(--text-primary);
+}
 </style>
