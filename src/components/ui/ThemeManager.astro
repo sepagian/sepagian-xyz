@@ -34,7 +34,7 @@
       initialized: false,
 
       getSystemTheme() {
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        return 'dark'
       },
 
       getStoredTheme() {
@@ -58,8 +58,7 @@
       },
 
       getEffectiveTheme() {
-        const stored = this.getStoredTheme()
-        return stored || this.getSystemTheme()
+        return 'dark'
       },
 
       isUsingSystemTheme() {
