@@ -1,20 +1,13 @@
-<div id="image-viewer" class="image-viewer" role="dialog" aria-modal="true" aria-label="Image viewer">
-  <button type="button" class="close-button" aria-label="Close image viewer"></button>
+<div id="image-viewer" class="image-viewer">
   <img id="image-viewer-img" src="" alt="" />
 </div>
 
 <script>
-  let lastFocusedElement: HTMLElement | null = null
-
   function initImageViewer() {
     const viewer = document.getElementById('image-viewer')
-    const viewerImg = document.getElementById('image-viewer-img')
-    const closeButton = document.querySelector('.close-button') as HTMLButtonElement
+    const viewerImg = document.getElementById('image-viewer-img') as HTMLImageElement
 
-    const hasRequiredElements = viewer && viewerImg && closeButton
-    if (!hasRequiredElements) {
-      return
-    }
+    if (!viewer || !viewerImg || viewerImg.tagName !== 'IMG') return
 
     // Display image in fullscreen viewer overlay
     function showImage(src: string, alt?: string) {
@@ -22,57 +15,37 @@
         viewerImg.src = src
         viewerImg.alt = alt || ''
       }
-      // Store the last focused element before opening
-      lastFocusedElement = document.activeElement as HTMLElement
-      
       // Show visibility first
-      viewer.style.visibility = 'visible'
-      // Trigger reflow to ensure transition works
-      viewer.offsetHeight
-      viewer.classList.add('active')
+      viewer!.style.visibility = 'visible'
+      void viewer!.offsetWidth
+      viewer!.classList.add('active')
       document.body.classList.add('image-viewer-open')
       document.body.style.overflow = 'hidden'
       document.body.dataset.scrollY = window.scrollY.toString()
-      viewer.style.cursor = 'auto'
-      
-      // Focus the close button for accessibility
-      closeButton.focus()
-      
+      viewer!.style.cursor = 'auto'
       setTimeout(() => {
-        viewer.style.cursor = ''
+        viewer!.style.cursor = ''
       }, 10)
     }
 
     // Hide the image viewer and restore page scroll
     function hideImage() {
-      viewer.classList.remove('active')
+      viewer!.classList.remove('active')
       document.body.classList.remove('image-viewer-open')
       document.body.style.overflow = ''
-      
-      // Return focus to the element that opened the viewer
-      if (lastFocusedElement) {
-        lastFocusedElement.focus()
-        lastFocusedElement = null
-      }
     }
 
-    // Bind close button click
-    closeButton.addEventListener('click', (e) => {
-      e.stopPropagation()
-      hideImage()
-    })
-
     // Hide and clear image after transition ends
-    viewer.addEventListener('transitionend', (e) => {
-      if (e.propertyName === 'opacity' && !viewer.classList.contains('active')) {
-        viewer.style.visibility = 'hidden'
+    viewer!.addEventListener('transitionend', (e) => {
+      if (e.propertyName === 'opacity' && !viewer!.classList.contains('active')) {
+        viewer!.style.visibility = 'hidden'
         if (viewerImg) {
           viewerImg.src = ''
           viewerImg.alt = ''
         }
-        viewer.style.cursor = 'auto'
+        viewer!.style.cursor = 'auto'
         setTimeout(() => {
-          viewer.style.cursor = ''
+          viewer!.style.cursor = ''
         }, 10)
       }
     })
@@ -80,7 +53,7 @@
     // Bind click events to images with data-preview="true" attribute
     function bindImageClickEvents() {
       const previewImages = document.querySelectorAll('img[data-preview="true"]')
-      for (const img of previewImages) {
+      previewImages.forEach((img) => {
         const imgElement = img as HTMLImageElement
         imgElement.style.cursor = 'pointer'
         imgElement.addEventListener('click', (e) => {
@@ -88,17 +61,10 @@
           const target = e.target as HTMLImageElement
           showImage(target.src, target.alt || '')
         })
-      }
+      })
     }
 
-    viewer?.addEventListener('click', (e) => {
-      // Don't close if clicking on the image or close button
-      const target = e.target as HTMLElement
-      if (target === viewerImg || target === closeButton || target.closest('.close-button')) {
-        return
-      }
-      hideImage()
-    })
+    viewer?.addEventListener('click', hideImage)
 
     // Prevent touch scroll in image viewer
     viewer?.addEventListener(
@@ -134,7 +100,7 @@
     }
 
     // Hide initially
-    viewer.style.visibility = 'hidden'
+    viewer!.style.visibility = 'hidden'
   }
 
   // Use only astro:page-load as it fires on initial load and navigation
@@ -178,49 +144,5 @@
 
   body.image-viewer-open {
     overflow: hidden;
-  }
-
-  .close-button {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    width: 2.5rem;
-    height: 2.5rem;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    z-index: 10000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .close-button::before,
-  .close-button::after {
-    content: '';
-    position: absolute;
-    width: 1.5rem;
-    height: 2px;
-    background: var(--text-primary);
-    opacity: 0.75;
-    transition: opacity 0.2s ease;
-  }
-
-  .close-button::before {
-    transform: rotate(45deg);
-  }
-
-  .close-button::after {
-    transform: rotate(-45deg);
-  }
-
-  .close-button:hover::before,
-  .close-button:hover::after {
-    opacity: 1;
-  }
-
-  .close-button:focus-visible {
-    outline: 1.5px dashed var(--text-tertiary);
-    border-radius: 0.25rem;
   }
 </style>
