@@ -45,14 +45,13 @@
   <meta name="description" content={data.page.description}>
 </svelte:head>
 
-<article
-  bind:this={proseDiv}
-  class="flex flex-col gap-4 prose prose-sm prose-neutral dark:prose-invert"
->
-  <h1 class="text-2xl font-bold not-prose">{data.page.title}</h1>
+<article bind:this={proseDiv} class="flex flex-col gap-4 text-sm leading-6">
+  <h1 class="text-2xl font-bold">{data.page.title}</h1>
 
   {#if data.page.body}
-    <PortableText value={data.page.body} />
+    <div class="flex flex-col gap-4 text-sm leading-6 text-muted-foreground">
+      <PortableText value={data.page.body} />
+    </div>
   {/if}
 
   <div class="w-full flex gap-4 justify-center">

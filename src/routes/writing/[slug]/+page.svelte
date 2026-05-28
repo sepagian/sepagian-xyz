@@ -21,9 +21,9 @@
   {/if}
 </svelte:head>
 
-<article class="prose prose-base dark:prose-invert">
+<article>
   <motion.a
-    class="not-prose text-sm text-gray-600 mb-4"
+    class="text-sm text-muted-foreground mb-4"
     href="/writing"
     initial={{ opacity: 0, y: 12 }}
     animate={{ opacity: 1, y: 0 }}
@@ -32,7 +32,7 @@
     &larr; Writings
   </motion.a>
   <motion.header
-    class="not-prose flex flex-col mb-8 mt-6"
+    class="flex flex-col mb-8 mt-6"
     initial={{ opacity: 0, y: 12 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.4, delay: 0.3, ease: "easeInOut" }}
@@ -53,7 +53,7 @@
     <motion.img
       src={urlFor(writing.image).width(800).url()}
       alt={writing.image.alt ?? writing.title}
-      class="not-prose w-full rounded-lg mb-8"
+      class="w-full rounded-lg mb-8"
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: 0.6, ease: "easeInOut" }}
@@ -70,7 +70,7 @@
     </motion.div>
   {/if}
 
-  <nav class="not-prose flex justify-between mt-6 text-sm">
+  <nav class="flex justify-between mt-6 text-sm">
     {#if next}
       <motion.a
         href="/writing/{next.slug}"

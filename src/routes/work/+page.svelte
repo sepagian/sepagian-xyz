@@ -16,7 +16,7 @@
       >{page.title}</motion.h1
     >
     <motion.div
-      class="not-prose text-sm text-muted-foreground leading-6 dark:prose-invert"
+      class="text-sm text-muted-foreground leading-6"
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay:0.2, ease: "easeInOut" }}

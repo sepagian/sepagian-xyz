@@ -12,9 +12,9 @@
   <meta name="description" content={work.description}>
 </svelte:head>
 
-<article class="prose prose-base dark:prose-invert">
+<article>
   <motion.a
-    class="not-prose text-sm text-gray-600 mb-4"
+    class="text-sm text-muted-foreground mb-4"
     href="/work"
     initial={{ opacity: 0, y: 12 }}
     animate={{ opacity: 1, y: 0 }}
@@ -23,7 +23,7 @@
     &larr; Works
   </motion.a>
   <motion.header
-    class="not-prose flex flex-col mb-8 mt-6 "
+    class="flex flex-col mb-8 mt-6"
     initial={{ opacity: 0, y: 12 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.3, delay: 0.3, ease: "easeInOut" }}
@@ -63,7 +63,7 @@
     <motion.img
       src={urlFor(work.image).width(800).url()}
       alt={work.image.alt ?? work.title}
-      class="not-prose w-full rounded-lg mb-8"
+      class="w-full rounded-lg mb-8"
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: 0.6, ease: "easeInOut" }}

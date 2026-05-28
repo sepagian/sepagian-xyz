@@ -21,7 +21,7 @@
 
 <div
   bind:this={proseDiv}
-  class="flex flex-col gap-4 prose prose-sm prose-neutral dark:prose-invert"
+  class="flex flex-col gap-4 text-sm font-medium leading-6 text-muted-foreground"
 >
   <PortableText value={data.page.body} />
 </div>
