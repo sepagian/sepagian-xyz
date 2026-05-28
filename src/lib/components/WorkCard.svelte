@@ -10,7 +10,7 @@
 <li>
   <a
     {href}
-    class="block group border rounded-md p-4 hover:(bg-muted) transition-all"
+    class="block group border border-border rounded-md p-4 hover:(bg-muted) transition-all"
   >
     {#if work.image}
       <img
@@ -20,9 +20,7 @@
         loading="lazy"
       >
     {/if}
-    <h2 class="text-base font-semibold">
-      {work.title}
-    </h2>
+    <h2 class="text-base font-semibold">{work.title}</h2>
     <p class="text-sm">{work.description}</p>
     <TagBadge tags={work.tags} />
   </a>

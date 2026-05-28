@@ -11,7 +11,7 @@
 
 <a
   {href}
-  class="group/card flex justify-between items-center border-b py-4 font-semibold transition-all"
+  class="group/card flex justify-between items-center border-b border-border py-4 font-semibold transition-all"
 >
   <h2
     class="text-sm font-semibold text-primary group-hover:text-muted-foreground/30 group-hover/card:text-primary transition-all"
