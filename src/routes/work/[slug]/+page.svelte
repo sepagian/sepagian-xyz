@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { motion } from "@humanspeak/svelte-motion";
   import Body from "$lib/components/Body.svelte";
   import TagBadge from "$lib/components/TagBadge.svelte";
+  import { fadeInUp } from "$lib/actions/fade-in-up";
   import { urlFor } from "$lib/sanity";
 
   let { data } = $props();
@@ -13,20 +13,16 @@
 </svelte:head>
 
 <article>
-  <motion.a
+  <a
     class="text-sm text-muted-foreground mb-4"
     href="/work"
-    initial={{ opacity: 0, y: 12 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.3, ease: "easeInOut" }}
+    use:fadeInUp
   >
     &larr; Works
-  </motion.a>
-  <motion.header
+  </a>
+  <header
     class="flex flex-col mb-8 mt-6"
-    initial={{ opacity: 0, y: 12 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.3, delay: 0.3, ease: "easeInOut" }}
+    use:fadeInUp={{ delay: 0.3 }}
   >
     <h1 class="text-2xl font-semibold">{work.title}</h1>
     <p class="text-base">{work.description}</p>
@@ -57,26 +53,20 @@
         <TagBadge tags={work.tags} />
       {/if}
     </div>
-  </motion.header>
+  </header>
 
   {#if work.image}
-    <motion.img
+    <img
       src={urlFor(work.image).width(800).url()}
       alt={work.image.alt ?? work.title}
       class="w-full rounded-lg mb-8"
-      initial={{ opacity: 0, y: 12 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3, delay: 0.6, ease: "easeInOut" }}
+      use:fadeInUp={{ delay: 0.6 }}
     />
   {/if}
 
   {#if work.body}
-    <motion.div
-      initial={{ opacity: 0, y: 12 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3, delay: 0.9, ease: "easeInOut" }}
-    >
+    <div use:fadeInUp={{ delay: 0.9 }}>
       <Body blocks={work.body} />
-    </motion.div>
+    </div>
   {/if}
 </article>

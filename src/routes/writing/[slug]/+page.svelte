@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { motion } from "@humanspeak/svelte-motion";
   import Body from "$lib/components/Body.svelte";
   import TagBadge from "$lib/components/TagBadge.svelte";
+  import { fadeInUp } from "$lib/actions/fade-in-up";
   import { urlFor } from "$lib/sanity";
 
   let { data } = $props();
@@ -23,20 +23,16 @@
 </svelte:head>
 
 <article>
-  <motion.a
+  <a
     class="text-sm text-muted-foreground mb-4"
     href="/writing"
-    initial={{ opacity: 0, y: 12 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.4, ease: "easeInOut" }}
+    use:fadeInUp
   >
     &larr; Writings
-  </motion.a>
-  <motion.header
+  </a>
+  <header
     class="flex flex-col mb-8 mt-6"
-    initial={{ opacity: 0, y: 12 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.4, delay: 0.3, ease: "easeInOut" }}
+    use:fadeInUp={{ delay: 0.3 }}
   >
     <h1 class="text-2xl font-semibold">{writing.title}</h1>
     <p class="text-base">{writing.excerpt}</p>
@@ -52,74 +48,60 @@
         <TagBadge tags={writing.tags} />
       {/if}
     </div>
-  </motion.header>
+  </header>
 
   {#if writing.image}
-    <motion.img
+    <img
       src={urlFor(writing.image).width(800).url()}
       alt={writing.image.alt ?? writing.title}
       class="w-full rounded-lg mb-8"
-      initial={{ opacity: 0, y: 12 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: 0.6, ease: "easeInOut" }}
+      use:fadeInUp={{ delay: 0.6 }}
     />
   {/if}
 
   {#if writing.body}
-    <motion.div
-      initial={{ opacity: 0, y: 12 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: 0.6, ease: "easeInOut" }}
-    >
+    <div use:fadeInUp={{ delay: 0.6 }}>
       <Body blocks={writing.body} />
-    </motion.div>
+    </div>
   {/if}
 
   <nav class="flex justify-between mt-6 text-sm gap-4">
     {#if prevInList}
-      <motion.a
+      <a
         href="/writing/{prevInList.slug}"
         class="text-muted-foreground hover:text-cyan-600 transition-colors border border-border py-4 px-4 rounded-md text-left w-sm content-center"
-        initial={{ opacity: 0, x: -12 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
+        use:fadeInUp={{ x: -12 }}
       >
         &larr;
         {prevInList.title}
-      </motion.a>
+      </a>
     {:else}
-      <motion.a
+      <a
         href="/writing"
         class="text-muted-foreground hover:text-cyan-600 transition-colors border border-border py-4 px-4 rounded-md text-left w-sm content-center"
-        initial={{ opacity: 0, x: -12 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
+        use:fadeInUp={{ x: -12 }}
       >
         &larr; Writings
-      </motion.a>
+      </a>
     {/if}
 
     {#if nextInList}
-      <motion.a
+      <a
         href="/writing/{nextInList.slug}"
         class="text-muted-foreground hover:text-cyan-600 transition-colors border border-border py-4 px-4 rounded-md text-right w-sm content-center"
-        initial={{ opacity: 0, x: 12 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
+        use:fadeInUp={{ x: 12 }}
       >
         {nextInList.title}
         &rarr;
-      </motion.a>
+      </a>
     {:else}
-      <motion.a
+      <a
         href="/writing"
         class="text-muted-foreground hover:text-cyan-600 transition-colors border border-border py-4 px-4 rounded-md text-right w-sm content-center"
-        initial={{ opacity: 0, x: 12 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
+        use:fadeInUp={{ x: 12 }}
       >
         Writings &rarr;
-      </motion.a>
+      </a>
     {/if}
   </nav>
 </article>

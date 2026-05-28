@@ -1,15 +1,12 @@
 <script lang="ts">
   import { PortableText } from "@portabletext/svelte";
-  import { animate, stagger } from "motion";
-  import { onMount } from "svelte";
+  import { fadeInUp } from "$lib/actions/fade-in-up";
   import type { Page, SiteSettings } from "$lib/types";
 
   let {
     data,
   }: { data: { page: Page; title: string; settings?: SiteSettings } } =
     $props();
-
-  let proseDiv = $state<HTMLDivElement>();
 
   const links = $derived(
     [
@@ -27,36 +24,28 @@
       },
     ].filter(Boolean)
   );
-
-  onMount(() => {
-    if (!proseDiv) {
-      return;
-    }
-    const blocks = proseDiv.querySelectorAll(":scope > *");
-    animate(
-      blocks,
-      { opacity: [0, 1], y: [8, 0] },
-      { delay: stagger(0.1), duration: 0.4, ease: "easeInOut" }
-    );
-  });
 </script>
 
 <svelte:head>
   <meta name="description" content={data.page.description}>
 </svelte:head>
 
-<article bind:this={proseDiv} class="flex flex-col gap-4 text-sm leading-6">
-  <h1 class="text-2xl font-bold">{data.page.title}</h1>
+<article class="flex flex-col gap-4 text-sm leading-6">
+  <h1 class="text-2xl font-bold" use:fadeInUp>{data.page.title}</h1>
 
   {#if data.page.body}
-    <div class="flex flex-col gap-4 text-sm leading-6 text-muted-foreground">
+    <div
+      use:fadeInUp={{ delay: 0.4}}
+      class="flex flex-col gap-4 text-sm leading-6 text-muted-foreground"
+    >
       <PortableText value={data.page.body} />
     </div>
   {/if}
 
   <div class="w-full flex gap-4 justify-center">
-    {#each links as link}
+    {#each links as link, i}
       <a
+        use:fadeInUp={{ delay: 0.8 + i * 0.2 }}
         href={link.url}
         target="_blank"
         rel="noopener noreferrer"

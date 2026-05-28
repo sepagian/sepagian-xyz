@@ -1,6 +1,9 @@
+import { createImageUrlBuilder } from "@sanity/image-url";
 import { client } from "$lib/sanity";
 import type { SiteSettings } from "$lib/types";
 import type { LayoutServerLoad } from "./$types";
+
+const imageBuilder = createImageUrlBuilder({ projectId: "1kqlzeoj", dataset: "production" });
 
 export const load: LayoutServerLoad = async () => {
   const [settings, lastUpdated] = await Promise.all([
@@ -23,10 +26,14 @@ export const load: LayoutServerLoad = async () => {
       footer,
       analyticsId
     }
-  `
+  `,
     ),
     client.fetch<string>(`*[_type == "page" && _id == "home"][0]._updatedAt`),
   ]);
 
-  return { settings, lastUpdated };
+  const ogImageUrl = settings?.ogImage
+    ? imageBuilder.image(settings.ogImage).width(1200).url()
+    : null;
+
+  return { settings, lastUpdated, ogImageUrl };
 };

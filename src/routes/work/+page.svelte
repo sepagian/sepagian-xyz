@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { motion } from "@humanspeak/svelte-motion";
   import WorkCard from "$lib/components/WorkCard.svelte";
+  import { fadeInUp } from "$lib/actions/fade-in-up";
 
   let { data } = $props();
   const page = data.page;
@@ -8,43 +8,28 @@
 
 <section class="grid gap-4">
   <article>
-    <motion.h1
-      class="text-2xl font-bold"
-      initial={{ opacity: 0, y: 12 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3, ease: "easeInOut" }}
-      >{page.title}</motion.h1
-    >
-    <motion.div
+    <h1 class="text-2xl font-bold" use:fadeInUp>
+      {page.title}
+    </h1>
+    <div
       class="text-sm text-muted-foreground leading-6"
-      initial={{ opacity: 0, y: 12 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3, delay:0.2, ease: "easeInOut" }}
+      use:fadeInUp={{ delay: 0.2 }}
     >
       {page.description}
-    </motion.div>
+    </div>
   </article>
 
   {#if data.works?.length}
     <ul class="grid grid-cols-2 gap-2">
       {#each data.works as work, i}
-        <motion.li
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.4 + i * 0.2, ease: "easeInOut" }}
-        >
+        <li use:fadeInUp={{ delay: 0.4 + i * 0.2 }}>
           <WorkCard {work} />
-        </motion.li>
+        </li>
       {/each}
     </ul>
   {:else}
-    <motion.p
-      class="text-gray-500"
-      initial={{ opacity: 0, y: 12 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3, delay: 0.3, ease: "easeInOut" }}
-    >
+    <p class="text-gray-500" use:fadeInUp={{ delay: 0.3 }}>
       No works yet.
-    </motion.p>
+    </p>
   {/if}
 </section>

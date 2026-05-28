@@ -5,11 +5,11 @@
   import favicon from "$lib/assets/favicon.svg?url";
   import Footer from "$lib/components/Footer.svelte";
   import Header from "$lib/components/Header.svelte";
-  import { urlFor } from "$lib/sanity";
 
   let { children, data } = $props();
   const settings = data?.settings;
   const lastUpdated = data?.lastUpdated;
+  const ogImageUrl = data?.ogImageUrl;
 </script>
 
 <svelte:head>
@@ -18,11 +18,8 @@
   {#if settings?.description}
     <meta name="description" content={settings.description}>
   {/if}
-  {#if settings?.ogImage}
-    <meta
-      property="og:image"
-      content={urlFor(settings.ogImage).width(1200).url()}
-    >
+  {#if ogImageUrl}
+    <meta property="og:image" content={ogImageUrl}>
   {/if}
 </svelte:head>
 
