@@ -79,7 +79,7 @@
     {#if prevInList}
       <motion.a
         href="/writing/{prevInList.slug}"
-        class="text-muted-foreground hover:text-cyan-600 transition-colors border py-4 px-4 rounded-md text-left w-sm content-center"
+        class="text-muted-foreground hover:text-cyan-600 transition-colors border border-border py-4 px-4 rounded-md text-left w-sm content-center"
         initial={{ opacity: 0, x: -12 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
@@ -90,7 +90,7 @@
     {:else}
       <motion.a
         href="/writing"
-        class="text-muted-foreground hover:text-cyan-600 transition-colors border py-4 px-4 rounded-md text-left w-sm content-center"
+        class="text-muted-foreground hover:text-cyan-600 transition-colors border border-border py-4 px-4 rounded-md text-left w-sm content-center"
         initial={{ opacity: 0, x: -12 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
@@ -102,7 +102,7 @@
     {#if nextInList}
       <motion.a
         href="/writing/{nextInList.slug}"
-        class="text-muted-foreground hover:text-cyan-600 transition-colors border py-4 px-4 rounded-md text-right w-sm content-center"
+        class="text-muted-foreground hover:text-cyan-600 transition-colors border border-border py-4 px-4 rounded-md text-right w-sm content-center"
         initial={{ opacity: 0, x: 12 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
@@ -113,7 +113,7 @@
     {:else}
       <motion.a
         href="/writing"
-        class="text-muted-foreground hover:text-cyan-600 transition-colors border py-4 px-4 rounded-md text-right w-sm content-center"
+        class="text-muted-foreground hover:text-cyan-600 transition-colors border border-border py-4 px-4 rounded-md text-right w-sm content-center"
         initial={{ opacity: 0, x: 12 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
