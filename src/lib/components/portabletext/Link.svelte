@@ -8,7 +8,9 @@
   }
 
   let { portableText, children }: Props = $props();
-  let mark = $derived(portableText.value as { href?: string; blank?: boolean } | undefined);
+  let mark = $derived(
+    portableText.value as { href?: string; blank?: boolean } | undefined
+  );
 </script>
 
 <a

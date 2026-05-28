@@ -10,6 +10,4 @@
   let { children }: Props = $props();
 </script>
 
-<em class="italic">
-  {@render children()}
-</em>
+<em class="italic"> {@render children()} </em>
