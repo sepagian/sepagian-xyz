@@ -17,8 +17,8 @@
 
 <p
   class={precededByH2
-    ? "[&:not(:first-child)]:mt-6 italic prose-base"
-    : "[&:not(:first-child)]:mt-6"}
+    ? "[&:not(:first-child)]:mt-6 italic leading-6 text-muted-foreground"
+    : "[&:not(:first-child)]:mt-6 leading-6 text-primary"}
 >
   {@render children()}
 </p>

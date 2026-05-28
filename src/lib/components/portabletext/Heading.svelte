@@ -23,39 +23,26 @@
 </script>
 
 <!-- If preceded by heading, have a higher margin top -->
-<div
-  class="not-prose relative {precededByHeading ? 'mt-10' : 'mt-4'}"
-  id={anchorId}
->
+<div class="relative {precededByHeading ? 'mt-10' : 'mt-4'}" id={anchorId}>
   {#if style === "h2"}
-    <div class="prose prose-lg dark:prose-invert">
-      <h2 class="scroll-m-20 font-semibold tracking-tight">
-        {@render children()}
-      </h2>
-    </div>
+    <h2 class="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
+      {@render children()}
+    </h2>
   {:else if style === "h3"}
-    <div class="prose prose-lg dark:prose-invert">
-      <h3 class="scroll-m-20 font-semibold tracking-tight">
-        {@render children()}
-      </h3>
-    </div>
+    <h3 class="scroll-m-20 text-2xl font-semibold tracking-tight">
+      {@render children()}
+    </h3>
   {:else if style === "h4"}
-    <div class="prose prose-lg dark:prose-invert">
-      <h4 class="scroll-m-20 font-semibold tracking-tight">
-        {@render children()}
-      </h4>
-    </div>
+    <h4 class="scroll-m-20 text-xl font-semibold tracking-tight">
+      {@render children()}
+    </h4>
   {:else if style === "h5"}
-    <div class="prose prose-lg dark:prose-invert">
-      <h5 class="scroll-m-20 font-semibold tracking-tight">
-        {@render children()}
-      </h5>
-    </div>
+    <h5 class="scroll-m-20 text-lg font-semibold tracking-tight">
+      {@render children()}
+    </h5>
   {:else}
-    <div class="prose prose-lg dark:prose-invert">
-      <h6 class="scroll-m-20 font-semibold tracking-tight">
-        {@render children()}
-      </h6>
-    </div>
+    <h6 class="scroll-m-20 text-base font-semibold tracking-tight">
+      {@render children()}
+    </h6>
   {/if}
 </div>

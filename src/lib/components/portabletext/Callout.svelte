@@ -67,7 +67,7 @@
       {#if value.title}
         <p class="font-semibold">{value.title}</p>
       {/if}
-      <div class="not-prose text-sm ">
+      <div class="text-sm">
         <PortableText value={value.content} />
       </div>
     </div>
