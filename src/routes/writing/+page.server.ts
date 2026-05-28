@@ -1,6 +1,7 @@
 import { error } from "@sveltejs/kit";
 import { client } from "$lib/sanity";
 import type { Page, Writing } from "$lib/types";
+import { estimateReadingTime } from "$lib/utils/reading-time";
 import type { PageServerLoad } from "./$types";
 
 const FIELDS = `{
@@ -10,7 +11,8 @@ const FIELDS = `{
   publishedAt,
   image,
   excerpt,
-  tags[]->{ _id, title, "slug": slug.current }
+  tags[]->{ _id, title, "slug": slug.current },
+  body
 }`;
 
 export const load: PageServerLoad = async () => {
@@ -32,5 +34,10 @@ export const load: PageServerLoad = async () => {
     `*[_type == "writing"] | order(publishedAt desc)${FIELDS}`
   );
 
-  return { writings, page, title: page.title };
+  const writingsWithTime = writings.map((w) => ({
+    ...w,
+    readingTime: w.body ? estimateReadingTime(w.body) : undefined,
+  }));
+
+  return { writings: writingsWithTime, page, title: page.title };
 };

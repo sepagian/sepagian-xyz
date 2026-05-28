@@ -30,7 +30,7 @@
   </article>
 
   {#if data.writings?.length}
-    <ul>
+    <ul class="group">
       {#each data.writings as writing, i}
         <motion.li
           initial={{ opacity: 0, y: 12 }}

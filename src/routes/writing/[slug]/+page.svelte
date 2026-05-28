@@ -6,8 +6,9 @@
 
   let { data } = $props();
   const writing = $derived(data.writing);
-  const prev = $derived(data.prev);
-  const next = $derived(data.next);
+  const prevInList = $derived(data.prevInList);
+  const nextInList = $derived(data.nextInList);
+  const readingTime = $derived(data.readingTime);
   const date = new Date(writing.publishedAt).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
@@ -39,9 +40,13 @@
   >
     <h1 class="text-2xl font-semibold">{writing.title}</h1>
     <p class="text-base">{writing.excerpt}</p>
-    <time datetime={writing.publishedAt} class="text-sm text-cyan-600"
-      >{date}</time
-    >
+    <div class="flex items-center gap-2 text-sm text-cyan-600">
+      <time datetime={writing.publishedAt}>{date}</time>
+      {#if readingTime}
+        <span aria-hidden="true">&middot;</span>
+        <span>{readingTime}</span>
+      {/if}
+    </div>
     <div class="flex items-center gap-4 text-sm mt-2">
       {#if writing.tags?.length}
         <TagBadge tags={writing.tags} />
@@ -70,23 +75,23 @@
     </motion.div>
   {/if}
 
-  <nav class="flex justify-between mt-6 text-sm">
-    {#if next}
+  <nav class="flex justify-between mt-6 text-sm gap-4">
+    {#if prevInList}
       <motion.a
-        href="/writing/{next.slug}"
-        class="text-muted-foreground hover:text-cyan-600 transition-colors border py-4 px-4 rounded-md"
-        initial={{ opacity: 0, x: 12 }}
-        animateborder={{ opacity: 1, x: 0 }}
+        href="/writing/{prevInList.slug}"
+        class="text-muted-foreground hover:text-cyan-600 transition-colors border py-4 px-4 rounded-md text-left w-sm content-center"
+        initial={{ opacity: 0, x: -12 }}
+        animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
       >
         &larr;
-        {next.title}
+        {prevInList.title}
       </motion.a>
     {:else}
       <motion.a
         href="/writing"
-        class="text-muted-foreground hover:text-cyan-600 transition-colors border py-4 px-4 rounded-md"
-        initial={{ opacity: 0, x: 12 }}
+        class="text-muted-foreground hover:text-cyan-600 transition-colors border py-4 px-4 rounded-md text-left w-sm content-center"
+        initial={{ opacity: 0, x: -12 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
       >
@@ -94,21 +99,21 @@
       </motion.a>
     {/if}
 
-    {#if prev}
+    {#if nextInList}
       <motion.a
-        href="/writing/{prev.slug}"
-        class="text-muted-foreground hover:text-cyan-600 transition-colors border py-4 px-4 rounded-md"
-        initial={{ opacity: 0, x: -12 }}
+        href="/writing/{nextInList.slug}"
+        class="text-muted-foreground hover:text-cyan-600 transition-colors border py-4 px-4 rounded-md text-right w-sm content-center"
+        initial={{ opacity: 0, x: 12 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
       >
-        {prev.title}
+        {nextInList.title}
         &rarr;
       </motion.a>
     {:else}
       <motion.a
         href="/writing"
-        class="text-muted-foreground hover:text-cyan-600 transition-colors border py-4 px-4 rounded-md"
+        class="text-muted-foreground hover:text-cyan-600 transition-colors border py-4 px-4 rounded-md text-right w-sm content-center"
         initial={{ opacity: 0, x: 12 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.4, ease: "easeInOut" }}

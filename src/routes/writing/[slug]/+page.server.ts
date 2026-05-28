@@ -1,12 +1,13 @@
 import { error } from "@sveltejs/kit";
 import { client } from "$lib/sanity";
 import type { Writing } from "$lib/types";
+import { estimateReadingTime } from "$lib/utils/reading-time";
 import type { PageServerLoad } from "./$types";
 
 interface WritingNavLink {
+  publishedAt: string;
   slug: string;
   title: string;
-  publishedAt: string;
 }
 
 export const load: PageServerLoad = async ({ params }) => {
@@ -35,8 +36,15 @@ export const load: PageServerLoad = async ({ params }) => {
 
   const currentIndex = allWritings.findIndex((w) => w.slug === params.slug);
 
-  const prev = currentIndex > -1 && currentIndex < allWritings.length - 1 ? allWritings[currentIndex + 1] : null;
-  const next = currentIndex > 0 ? allWritings[currentIndex - 1] : null;
+  const prevInList = currentIndex > 0 ? allWritings[currentIndex - 1] : null;
+  const nextInList =
+    currentIndex > -1 && currentIndex < allWritings.length - 1
+      ? allWritings[currentIndex + 1]
+      : null;
 
-  return { writing, title: writing.title, prev, next };
+  const readingTime = writing.body
+    ? estimateReadingTime(writing.body)
+    : undefined;
+
+  return { writing, title: writing.title, prevInList, nextInList, readingTime };
 };
