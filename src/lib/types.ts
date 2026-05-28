@@ -45,6 +45,7 @@ export interface Writing {
   excerpt?: string;
   image?: SanityImage;
   publishedAt: string;
+  readingTime?: string;
   slug: string;
   tags: Tag[];
   title: string;
