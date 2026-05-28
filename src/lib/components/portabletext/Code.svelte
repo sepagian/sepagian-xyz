@@ -11,7 +11,7 @@
 </script>
 
 <code
-  class="relative rounded-md bg-muted border border-border px-2 py-1 font-mono text-sm font-semibold"
+  class="rounded-md bg-muted border border-border px-0.5 py-0.5 font-mono text-sm font-semibold"
 >
   {@render children()}
 </code>

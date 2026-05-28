@@ -49,7 +49,7 @@
         href={link.url}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-cyan-600 transition-colors"
+        class="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-cyan-800 transition-colors"
       >
         <span>{link.label}</span>
       </a>

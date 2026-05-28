@@ -25,7 +25,7 @@
     <a href="/" aria-label="Home">
       <Logo class="text-primary h-8 w-auto" aria-hidden="true"></Logo>
     </a>
-    <span class="text-cyan-600 text-xs font-medium sm:inline hidden">
+    <span class="text-cyan-800 text-xs font-medium sm:inline hidden">
       Last Updated: {formattedDate ?? "—"}
     </span>
   </div>
@@ -35,14 +35,18 @@
         {#each settings.navLinks.sort((a, b) => a.order - b.order) as link}
           <a
             href={link.url}
-            class="text-sm hover:text-cyan-600 transition-colors"
+            class="text-sm hover:text-cyan-800 transition-colors"
           >
             {link.label}
           </a>
         {/each}
       </nav>
     {/if}
-    <button type="button" onclick={() => toggleMode()}>
+    <button
+      type="button"
+      onclick={() => toggleMode()}
+      aria-label="Theme switcher"
+    >
       <SunMoon strokeWidth="1.5" size="18" />
     </button>
   </div>

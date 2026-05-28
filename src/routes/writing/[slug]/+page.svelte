@@ -23,20 +23,13 @@
 </svelte:head>
 
 <article>
-  <a
-    class="text-sm text-muted-foreground mb-4"
-    href="/writing"
-    use:fadeInUp
-  >
+  <a class="text-sm text-muted-foreground mb-4" href="/writing" use:fadeInUp>
     &larr; Writings
   </a>
-  <header
-    class="flex flex-col mb-8 mt-6"
-    use:fadeInUp={{ delay: 0.3 }}
-  >
+  <header class="flex flex-col mb-8 mt-6" use:fadeInUp={{ delay: 0.3 }}>
     <h1 class="text-2xl font-semibold">{writing.title}</h1>
     <p class="text-base">{writing.excerpt}</p>
-    <div class="flex items-center gap-2 text-sm text-cyan-600">
+    <div class="flex items-center gap-2 text-sm text-cyan-800">
       <time datetime={writing.publishedAt}>{date}</time>
       {#if readingTime}
         <span aria-hidden="true">&middot;</span>
@@ -56,7 +49,7 @@
       alt={writing.image.alt ?? writing.title}
       class="w-full rounded-lg mb-8"
       use:fadeInUp={{ delay: 0.6 }}
-    />
+    >
   {/if}
 
   {#if writing.body}
@@ -69,7 +62,7 @@
     {#if prevInList}
       <a
         href="/writing/{prevInList.slug}"
-        class="text-muted-foreground hover:text-cyan-600 transition-colors border border-border py-4 px-4 rounded-md text-left w-sm content-center"
+        class="text-muted-foreground hover:text-cyan-800 transition-colors border border-border py-4 px-4 rounded-md text-left w-sm content-center"
         use:fadeInUp={{ x: -12 }}
       >
         &larr;
@@ -78,7 +71,7 @@
     {:else}
       <a
         href="/writing"
-        class="text-muted-foreground hover:text-cyan-600 transition-colors border border-border py-4 px-4 rounded-md text-left w-sm content-center"
+        class="text-muted-foreground hover:text-cyan-800 transition-colors border border-border py-4 px-4 rounded-md text-left w-sm content-center"
         use:fadeInUp={{ x: -12 }}
       >
         &larr; Writings
@@ -88,7 +81,7 @@
     {#if nextInList}
       <a
         href="/writing/{nextInList.slug}"
-        class="text-muted-foreground hover:text-cyan-600 transition-colors border border-border py-4 px-4 rounded-md text-right w-sm content-center"
+        class="text-muted-foreground hover:text-cyan-800 transition-colors border border-border py-4 px-4 rounded-md text-right w-sm content-center"
         use:fadeInUp={{ x: 12 }}
       >
         {nextInList.title}
@@ -97,7 +90,7 @@
     {:else}
       <a
         href="/writing"
-        class="text-muted-foreground hover:text-cyan-600 transition-colors border border-border py-4 px-4 rounded-md text-right w-sm content-center"
+        class="text-muted-foreground hover:text-cyan-800 transition-colors border border-border py-4 px-4 rounded-md text-right w-sm content-center"
         use:fadeInUp={{ x: 12 }}
       >
         Writings &rarr;

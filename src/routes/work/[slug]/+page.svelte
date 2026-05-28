@@ -13,24 +13,17 @@
 </svelte:head>
 
 <article>
-  <a
-    class="text-sm text-muted-foreground mb-4"
-    href="/work"
-    use:fadeInUp
-  >
+  <a class="text-sm text-muted-foreground mb-4" href="/work" use:fadeInUp>
     &larr; Works
   </a>
-  <header
-    class="flex flex-col mb-8 mt-6"
-    use:fadeInUp={{ delay: 0.3 }}
-  >
+  <header class="flex flex-col mb-8 mt-6" use:fadeInUp={{ delay: 0.3 }}>
     <h1 class="text-2xl font-semibold">{work.title}</h1>
     <p class="text-base">{work.description}</p>
     <div class="flex gap-4">
       {#if work.url}
         <a
           href={work.url}
-          class="text-cyan-600 text-sm hover:underline"
+          class="text-cyan-800 text-sm hover:underline"
           target="_blank"
           rel="noopener"
         >
@@ -40,7 +33,7 @@
       {#if work.sourceUrl}
         <a
           href={work.sourceUrl}
-          class="text-cyan-600 text-sm hover:underline"
+          class="text-cyan-800 text-sm hover:underline"
           target="_blank"
           rel="noopener"
         >
@@ -61,7 +54,7 @@
       alt={work.image.alt ?? work.title}
       class="w-full rounded-lg mb-8"
       use:fadeInUp={{ delay: 0.6 }}
-    />
+    >
   {/if}
 
   {#if work.body}
