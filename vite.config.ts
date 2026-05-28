@@ -1,5 +1,6 @@
 import svg from "@poppanator/sveltekit-svg";
 import { sveltekit } from "@sveltejs/kit/vite";
+import extractorSvelte from "@unocss/extractor-svelte";
 import UnoCSS from "unocss/vite";
 import { defineConfig } from "vite-plus";
 
@@ -11,7 +12,9 @@ export default defineConfig({
   lint: { options: { typeAware: true, typeCheck: true } },
   server: { host: true, port: 5432 },
   plugins: [
-    UnoCSS(),
+    UnoCSS({
+      extractors: [extractorSvelte()],
+    }),
     svg({
       includePaths: ["./src/lib/assets/"],
       svgoOptions: {
