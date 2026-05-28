@@ -2,7 +2,6 @@ import {
   defineConfig,
   presetAttributify,
   presetTagify,
-  presetTypography,
   presetWebFonts,
   presetWind4,
   transformerDirectives,
@@ -13,7 +12,12 @@ import { presetShadcn } from "unocss-preset-shadcn";
 
 export default defineConfig({
   presets: [
-    presetWind4(),
+    presetWind4({
+      preflights: {
+        reset: true,
+      },
+      dark: "class",
+    }),
     presetAttributify(),
     presetWebFonts({
       provider: "google",
@@ -21,7 +25,6 @@ export default defineConfig({
         sans: ["Geist:400,500,600,700,800"],
       },
     }),
-    presetTypography(),
     presetTagify(),
     presetShadcn(),
     presetAnimations(),
