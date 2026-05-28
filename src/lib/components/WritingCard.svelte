@@ -15,7 +15,7 @@
 >
   <h2 class="text-sm font-semibold">{writing.title}</h2>
   <time
-    class="not-prose text-sm text-muted-foreground"
+    class="text-sm text-muted-foreground"
     datetime={writing.publishedAt}
     >{date}</time
   >

@@ -6,6 +6,9 @@
   import Callout from "./portabletext/Callout.svelte";
   import Code from "./portabletext/Code.svelte";
   import CodeBlock from "./portabletext/CodeBlock.svelte";
+  import Em from "./portabletext/Em.svelte";
+  import Link from "./portabletext/Link.svelte";
+  import Strong from "./portabletext/Strong.svelte";
   import Divider from "./portabletext/Divider.svelte";
   import Embed from "./portabletext/Embed.svelte";
   import File from "./portabletext/File.svelte";
@@ -25,6 +28,7 @@
   const components: PortableTextComponents = {
     block: {
       normal: Paragraph,
+      h1: Heading,
       h2: Heading,
       h3: Heading,
       h4: Heading,
@@ -38,6 +42,9 @@
     },
     marks: {
       code: Code,
+      em: Em,
+      link: Link,
+      strong: Strong,
     },
     types: {
       callout: Callout,
