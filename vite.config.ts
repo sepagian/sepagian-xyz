@@ -1,10 +1,14 @@
-import { paraglideVitePlugin } from "@inlang/paraglide-js";
 import svg from "@poppanator/sveltekit-svg";
 import { sveltekit } from "@sveltejs/kit/vite";
 import UnoCSS from "unocss/vite";
-import { defineConfig } from "vite";
+import { defineConfig } from "vite-plus";
 
 export default defineConfig({
+  staged: {
+    "*": "vp check --fix",
+  },
+  fmt: {},
+  lint: { options: { typeAware: true, typeCheck: true } },
   server: { host: true, port: 5432 },
   plugins: [
     UnoCSS(),
@@ -15,9 +19,5 @@ export default defineConfig({
       },
     }),
     sveltekit(),
-    paraglideVitePlugin({
-      project: "./project.inlang",
-      outdir: "./src/lib/paraglide",
-    }),
   ],
 });

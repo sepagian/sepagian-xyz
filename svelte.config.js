@@ -1,6 +1,5 @@
 import adapter from "@sveltejs/adapter-cloudflare";
 import UnoCSS from "@unocss/svelte-scoped/preprocess";
-import { mdsvex } from "mdsvex";
 
 const regex = /[/\\]/;
 
@@ -8,14 +7,10 @@ const regex = /[/\\]/;
 const config = {
   compilerOptions: {
     // Force runes mode for the project, except for libraries. Can be removed in svelte 6.
-    runes: ({ filename }) =>
-      filename.split(regex).includes("node_modules") ? undefined : true,
+    runes: ({ filename }) => (filename.split(regex).includes("node_modules") ? undefined : true),
   },
   kit: { adapter: adapter() },
-  preprocess: [
-    mdsvex({ extensions: [".svx", ".md"] }),
-    UnoCSS({ configOrPath: "./uno.config.ts", exclude: ["./node_modules"] }),
-  ],
+  preprocess: [UnoCSS({ configOrPath: "./uno.config.ts", exclude: ["./node_modules"] })],
   extensions: [".svelte", ".svx", ".md"],
 };
 
