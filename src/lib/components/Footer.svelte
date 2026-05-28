@@ -4,12 +4,9 @@
     now.toLocaleTimeString("id-ID", {
       hour12: false,
       timeStyle: "long",
+      timeZone: "Asia/Makassar",
     })
   );
-  $effect(() => {
-    const interval = setInterval(() => (now = new Date()), 1000);
-    return () => clearInterval(interval);
-  });
 </script>
 
 <footer class="pt-10">
