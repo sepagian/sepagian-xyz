@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { motion } from "@humanspeak/svelte-motion";
   import SunMoon from "@lucide/svelte/icons/sun-moon";
   import { toggleMode } from "mode-watcher";
   import Logo from "$lib/assets/sepagian.svg?component";
