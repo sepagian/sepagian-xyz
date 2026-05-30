@@ -1,6 +1,6 @@
 <script lang="ts">
-  import WorkCard from "$lib/components/WorkCard.svelte";
   import { fadeInUp } from "$lib/actions/fade-in-up";
+  import WorkCard from "$lib/components/WorkCard.svelte";
 
   let { data } = $props();
   const page = data.page;
