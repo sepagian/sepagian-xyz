@@ -9,7 +9,7 @@
 
 <a
   {href}
-  class="border border-border rounded-md p-2 hover:(bg-muted) transition-all aspect-square flex flex-col gap-2 h-full"
+  class="border border-border rounded-md p-2 hover:(bg-muted) transition-all flex flex-col gap-2 h-full"
 >
   {#if work.image}
     <img
@@ -23,9 +23,9 @@
       class="bg-muted aspect-3/2 w-full rounded-sm border border-border"
     ></div>
   {/if}
-  <div class="h-fit">
+  <div class="h-full">
     <h2 class="text-base font-semibold">{work.title}</h2>
-    <p class="text-sm">{work.description}</p>
-    <TagBadge tags={work.tags} />
+    <p class="text-sm flex">{work.description}</p>
   </div>
+  <TagBadge tags={work.tags} />
 </a>
